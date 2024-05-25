@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const compression = require('compression');
 const cors = require('cors');
 const AppError = require('./utils/appError');
@@ -75,7 +76,11 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 
-app.post('/webhook-checkout', express.raw(), bookingController.webhookCheckout);
+app.post(
+  '/webhook-checkout',
+  bodyParser.raw(),
+  bookingController.webhookCheckout,
+);
 
 // body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
