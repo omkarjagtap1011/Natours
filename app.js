@@ -55,6 +55,7 @@ app.use(
         'https://maps.googleapis.com/',
         'ws://127.0.0.1:64907/',
         'ws://127.0.0.1:57952/',
+        'ws://127.0.0.1:62463/',
       ],
       objectSrc: ["'none'"],
       upgradeInsecureRequests: [],
